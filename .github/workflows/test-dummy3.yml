@@ -32,8 +32,8 @@ jobs:
         run: |
             $MYWINHOST=([System.Net.Dns]::GetHostByName($env:computerName).HostName)
             echo $MYWINHOST
-            ipconfig /all
-            tasklist
+            #ipconfig /all
+            #tasklist
             curl -vv $MYWINHOST:9000
         shell: pwsh
       - name: debug2

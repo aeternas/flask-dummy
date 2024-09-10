@@ -30,7 +30,7 @@ jobs:
             Get-NetIpAddress | Format-Table
       - name: Debug
         run: |
-            echo "MYWINHOST=$([System.Net.Dns]::GetHostByName($env:computerName).HostName)" >> $GITHUB_ENV
+            echo "MYWINHOST=$([System.Net.Dns]::GetHostByName($env:computerName).HostName)" >> $env:GITHUB_ENV
             #echo "MYWINHOST=$mywinhost" >> $GITHUB_ENV
             ipconfig /all
             tasklist

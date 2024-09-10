@@ -31,7 +31,7 @@ jobs:
       - name: Debug
         run: |
             $MYWINHOST=([System.Net.Dns]::GetHostByName($env:computerName).HostName)
-            #echo "MYWINHOST=$mywinhost" >> $GITHUB_ENV
+            echo $MYWINHOST
             ipconfig /all
             tasklist
             curl -vv $MYWINHOST:9000

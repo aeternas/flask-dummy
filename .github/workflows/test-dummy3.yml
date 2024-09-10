@@ -28,9 +28,15 @@ jobs:
       - name: debug3
         run: |
             Get-NetIpAddress | Format-Table
+      - name: Debug
+        run: |
+            $mywinhost = ([System.Net.Dns]::GetHostByName($env:computerName).HostName)
+            echo "mywinhost=$mywinhost" >> $GITHUB_ENV
+            ipconfig /all
+            tasklist
       - name: debug2
         run: |
-            curl -vv 127.0.0.1:9000
+            curl -vv ${{ env.mywinhost }}:9000
       
       #- uses: NyaMisty/reverse-rdp-windows-github-actions-ng@master
       #  if: ${{ always() && github.event_name == 'workflow_dispatch' && github.event.inputs.test_debug_enabled }}

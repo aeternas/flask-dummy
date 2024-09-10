@@ -30,11 +30,11 @@ jobs:
             Get-NetIpAddress | Format-Table
       - name: Debug
         run: |
-            set MYWINHOST=([System.Net.Dns]::GetHostByName($env:computerName).HostName)
+            $env:MYWINHOST=([System.Net.Dns]::GetHostByName($env:computerName).HostName)
             #echo "MYWINHOST=$mywinhost" >> $GITHUB_ENV
             ipconfig /all
             tasklist
-            curl -vv $MYWINHOST:9000
+            curl -vv $(env:MYWINHOST):9000
         shell: pwsh
       - name: debug2
         run: |

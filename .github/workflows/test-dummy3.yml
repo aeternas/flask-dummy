@@ -32,6 +32,7 @@ jobs:
         run: |
             $MYWINHOST=([System.Net.Dns]::GetHostByName($env:computerName).HostName)
             echo "MYWINHOST=$MYWINHOST" >> $env:GITHUB_ENV
+            Get-NetTCPConnection | where Localport -eq 9000 | select Localport,OwningProcess
             #echo $env:MYWINHOST
             #ipconfig /all
             #tasklist

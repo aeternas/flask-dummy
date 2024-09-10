@@ -35,6 +35,7 @@ jobs:
             ipconfig /all
             tasklist
             curl -vv ${{ env.MYWINHOST }}:9000
+        shell: pwsh
       - name: debug2
         run: |
             curl -vv ${{ env.MYWINHOST }}:9000

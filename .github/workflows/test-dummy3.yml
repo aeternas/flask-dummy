@@ -34,7 +34,7 @@ jobs:
             echo $MYWINHOST
             #ipconfig /all
             #tasklist
-            curl -vv $MYWINHOST:9000
+            curl -vv $(MYWINHOST):9000
         shell: pwsh
       - name: debug2
         run: |
